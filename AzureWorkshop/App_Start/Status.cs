@@ -20,7 +20,7 @@ namespace AzureWorkshop
 
             using (WebClient webClient = new WebClient())
             {
-                Url url = new Url("https://www.miroslavholec.cz/workshopboard/azurebc2016");
+                Url url = new Url("https://www.miroslavholec.cz/workshops/barcamp/add");
 
                 StringBuilder sb = new StringBuilder();
                 sb.Append("?tm=" + (teamName ?? Environment.MachineName));
@@ -28,7 +28,7 @@ namespace AzureWorkshop
 
                 try
                 {
-                    webClient.DownloadString(url + sb.ToString());
+                    webClient.DownloadString("https://www.miroslavholec.cz/workshops/barcamp/add" + sb.ToString());
                 }
                 catch (Exception e)
                 {
@@ -59,8 +59,6 @@ namespace AzureWorkshop
 
             using (WebClient webClient = new WebClient())
             {
-                Url url = new Url("http://www.miroslavholec.cz/workshopboard/azurebc2016");
-
                 StringBuilder sb = new StringBuilder();
                 sb.Append("?rep=" + repository.GetType().Name);
                 sb.Append("&svc=" + service.GetType().Name);
@@ -70,11 +68,11 @@ namespace AzureWorkshop
 
                 try
                 {
-                    webClient.DownloadString(url + sb.ToString());
+                    webClient.DownloadString("https://www.miroslavholec.cz/workshops/barcamp/add" + sb.ToString());
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
+                    Console.WriteLine(e); 
                 }
             }
         }
