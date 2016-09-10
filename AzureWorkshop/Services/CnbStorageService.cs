@@ -43,20 +43,27 @@ namespace AzureWorkshop.Services
         {
             result = null;
 
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-            CloudBlobContainer blobContainer = blobClient.GetContainerReference("demo-exchanges");
-            if (blobContainer.CreateIfNotExists())
+            try
             {
-                Log.Event("Created new blob storage container demo-exchanges");
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+                CloudBlobContainer blobContainer = blobClient.GetContainerReference("demo-exchanges");
+                if (blobContainer.CreateIfNotExists())
+                {
+                    Log.Event("Created new blob storage container demo-exchanges");
+                }
+
+                CloudBlockBlob blob = blobContainer.GetBlockBlobReference(url);
+                if (blob.Exists())
+                {
+                    result = blob.DownloadText();
+                    return true;
+                }
             }
-
-            CloudBlockBlob blob = blobContainer.GetBlockBlobReference(url);
-            if (blob.Exists())
+            catch (Exception ex)
             {
-                result = blob.DownloadText();
-                return true;
+                Log.Error(ex);
             }
 
             return false;
@@ -64,20 +71,27 @@ namespace AzureWorkshop.Services
 
         private async Task SaveToStorage(string url, string data)
         {
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-            CloudBlobContainer blobContainer = blobClient.GetContainerReference("demo-exchanges");
-            if (await blobContainer.CreateIfNotExistsAsync())
-            {
-                Log.Event("Created new blob storage container demo-exchanges");
-                Hub.Notify("ab");
-            }
-
-            CloudBlockBlob blob = blobContainer.GetBlockBlobReference(url);
             try
             {
-                await blob.UploadTextAsync(data);
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+                CloudBlobContainer blobContainer = blobClient.GetContainerReference("demo-exchanges");
+                if (await blobContainer.CreateIfNotExistsAsync())
+                {
+                    Log.Event("Created new blob storage container demo-exchanges");
+                    Hub.Notify("ab");
+                }
+
+                CloudBlockBlob blob = blobContainer.GetBlockBlobReference(url);
+                try
+                {
+                    await blob.UploadTextAsync(data);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex);
+                }
             }
             catch (Exception ex)
             {

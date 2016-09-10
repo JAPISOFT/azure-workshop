@@ -46,9 +46,17 @@ namespace AzureWorkshop
             bool sqlWorks = false;
             try
             {
-                if (service.GetType().Name.Contains("Sql"))
+                if (repository.GetType().Name.Contains("Sql"))
                 {
-                    sqlWorks = context.Exchanges.Any();
+                    try
+                    {
+                        var test = context.Exchanges.FirstOrDefault();
+                        sqlWorks = true;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
                 }
             }
             catch (Exception e)
