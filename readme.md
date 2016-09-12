@@ -27,7 +27,7 @@ Zvolte si své jméno týmu nebo nickname a zapište jej do souboru `C:\Workshop
 	
 Název dále během workshopu neměňte.
 
-Projekt je tímto ve své základní verzi připraven k práci.
+Projekt je tímto ve své základní verzi připraven k práci. Visual Studio 2015 nevypínejte.
 
 ## Microsoft Azure
 Ukázková aplikace bude v průběhu workshopu několikrát nasazována ve změněných podobách do prostředí Microsoft Azure. Pro registraci do prostředí Microsoft Azure postupujte dle pokynů lektora.
@@ -56,12 +56,13 @@ Tímto je založen hostingový plán, v rámci kterého je možné vytvářet je
 Tímto je založena služba, do které je možné nasadit webovou aplikaci.
 
 ### DEMO: Nasazení webové aplikace do služby Web App
+1. Přesvědčte se, zda máte stále aktivní Visual Studio 2015 a otevřený projekt (viz. tutoriál výše)
+2. Vyzkoušejte funkčnost projektu stisknutím `CTRL+F5`
+3. Klikněte pravým tlačítkem myši na název projektu **AzureWorkshop** v Solution Exploreru a z kontectového menu zvolte možnost **Publish**
+4. Vyberte možnost Microsoft Azure Web Apps
+5. Přihlaste se svými údaji k Microsoft účtu
+6. Vyberte jedinou Subscription a následně Web App vytvořenou v předchozí části tohoto tutoriálu
+7. Pokračujte vyplněním průvodce dle pokynů lektora
+8. Kliknutím na **Publish** proveďte nasazení aplikace do prostředí Azure Web App
 
-
-## DEMO: Diagnostická služba Application Insights
-TBA
-## DEMO: Ukládání dat do Azure Storage
-TBA
-
-## DEMO: Připojení k relační databázi MS SQL
-TBA
+Tímto je nasazena webová aplikace v prostředí Azure Web App
