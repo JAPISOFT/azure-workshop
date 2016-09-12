@@ -12,7 +12,7 @@ Ukázková aplikace stahuje s každým requestem aktuální kurzovní lístek ze
 Každý účastník školení nalezne tuto aplikaci na připraveném virtuálním počítači ve složce c:\Workshop. Do této složky je možné přejít i přímo z plochy.
 
 #### Aktualizace aplikace
-Před zahájením práce je doporučeno stáhnout aktuální verzi aplikace z GitHub repositáře. Ve složce c:\Workshop se nachází soubor `get_latest.bat`. 
+Před zahájením práce je doporučeno stáhnout aktuální verzi aplikace z GitHub repositáře. Ve složce `c:\Workshop` se nachází soubor `get_latest.bat`. 
 Spuštěním tohoto dávkového souboru se stáhne aktuální verze aplikace z GitHub repositáře.
 
 ### Otevření projektu
@@ -20,11 +20,12 @@ Projekt lze otevřít pomocí MS Visual Studio 2015 (standardně ve verzi Commun
 
 ### Nastavení názvu týmu/vývojáře
 Aby měl lektor rychlou představu o průběhu workshopu, odesílá aplikace s každou kompilací informace o postupu výuky. 
+
 Zvolte si své jméno týmu nebo nickname a zapište jej do souboru `C:\Workshop\azure-workshop\AzureWorkshop\Web.config` do sekce `<AppSettings> / <TeamName>`
 
 	<add key="TeamName" value="MujNickname" />
 	
-Název již během workshopu neměňte.
+Název dále během workshopu neměňte.
 
 Projekt je tímto ve své základní verzi připraven k práci.
 
@@ -34,11 +35,28 @@ Ukázková aplikace bude v průběhu workshopu několikrát nasazována ve změn
 ### Registrace do portálu
 TBA
 
-### Seznámení s portálem
-TBA
-
 ## DEMO: Vytvoření Azure App Service
-TBA
+1. Přihlaste se do [azure portálu](https://portal.azure.com)
+2. V levém menu vyberte možnost **New**
+3. Do vyhledávacího pole zadejte **app service**
+4. Vyberte z vyhledaných výsledků možnost **App Service Plan**
+5. Klikněte na tlačítko **Create**
+6. Formulář vyplňte dle pokynů lektora a klikněte na tlačítko **Create**
+
+Tímto je založen hostingový plán, v rámci kterého je možné vytvářet jednotlivé webové aplikace.
+
+### Vytvořené nové webové aplikace
+1. Přihlaste se do [azure portálu](https://portal.azure.com)
+2. Z nabídky levého menu zvolte možnost **New**
+3. Do vyhledávacího pole zadejte **web app**
+4. Vyberte z vyhledaných výsledků možnost **Web App**
+5. Klikněte na tlačítko **Create**
+6. Formulář vyplňte dle pokynů lektora a klikněte na tlačítko **Create**
+
+Tímto je založena služba, do které je možné nasadit webovou aplikaci.
+
+### DEMO: Nasazení webové aplikace do služby Web App
+
 
 ## DEMO: Diagnostická služba Application Insights
 TBA
