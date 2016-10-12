@@ -33,7 +33,11 @@ Projekt je tímto ve své základní verzi připraven k práci. Visual Studio 20
 Ukázková aplikace bude v průběhu workshopu několikrát nasazována ve změněných podobách do prostředí Microsoft Azure. Pro registraci do prostředí Microsoft Azure postupujte dle pokynů lektora.
 
 ### Registrace do portálu
-TBA
+K registraci do portálu lze použít Azure Pass.
+
+1. Navštivte stránku [microsoftazurepass](https://www.microsoftazurepass.com)
+2. Vyplňte zemi a kód, který vám sdělí lektor
+3. Pokračujte dle registračních pokynů
 
 ## DEMO: Vytvoření Azure App Service
 1. Přihlaste se do [azure portálu](https://portal.azure.com)
